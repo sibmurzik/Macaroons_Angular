@@ -1,0 +1,134 @@
+
+<component-header></component-header>
+<!--Common information-->
+<article class="common-info">
+  <section class="container common-info__container">
+    <section class="common-info__description">
+      <h1 class="common-info__title">
+        Мягкие французские пироженки Macaroons
+      </h1>
+      <h3 class="common-info__text">
+        Побалуйте себя и своих близких самыми вкусными и ароматными домашними пироженками Macaroon!
+      </h3>
+      <button class="btn common-info__btn" (click)="scrollTo(productSelect)">Выбрать макарун</button>
+    </section>
+    <section class="common-info_picture-holder">
+      <section class="common-info__picture">
+        <img src="assets/cakes_in_box.png" alt="Cake in box" class="cakes-image">
+      </section>
+    </section>
+
+  </section>
+</article>
+<!--Advantages-->
+<article class="advantages">
+  <section class="container advantages__container">
+    <h2 class="advantages__title">
+      Мы печём для вас вкуснейшие макаруны уже более 10 лет
+    </h2>
+    <h4 class="advantages__recipe">
+      Все пироженки мы готовим только из натуральных и качественных продуктов, без консервантов,
+      ароматизаторов, красителей. Используем в приготовлении сливочное масло 82,5%, без дрожжей, маргарина,
+      разрыхлителей и улучшителей муки.
+    </h4>
+    <section class="advantages__main_picture">
+      <img src="assets/big_cake.png" alt="Big cake" class="big-cake-image">
+    </section>
+
+    <section *ngFor="let advantage of advantagesList"  class="advantages__card card-{{advantage.number}} ">
+      <section class="number-in-oval"><span class="number-in-oval__figure">{{advantage.number}}</span></section>
+      <h3 class="advantages_feature">{{advantage.feature}}</h3>
+      <p class="advantages__text">{{advantage.description}}</p>
+
+    </section>
+
+
+  </section>
+</article>
+<!--Product selection-->
+<main class="product-select">
+  <section class="container">
+    <h1 class="products-select__title">Выберите свой макарун</h1>
+    <section class="products-select__cards" #productSelect>
+      <section class="product-card" *ngFor="let product of productCards ">
+        <section class="product-card__image">
+          <img class="product-image" src="assets/images_for_selection/{{product.image}}" alt="{{product.title}}">
+        </section>
+        <section class="product-card__info">
+          <section class="product-card__title">{{product.title}}</section>
+          <section class="product-card__qty">{{product.qty}}</section>
+          <section class="product-card__price">{{product.price}}</section>
+          <button class="btn product-card__button" (click)="orderProduct(product, orderForm)">Заказать</button>
+        </section>
+      </section>
+
+    </section>
+  </section>
+</main>
+
+<!--Product order-->
+<article class="product-order">
+  <section class="container product-order__container">
+    <section class="pile-of-cakes">
+      <img class="product-order__img" src="assets/pile-of-cakes.png" alt="Pile of Cakes">
+    </section>
+    <section class="flying-berry big-berry">
+      <img class="product-order__img" src="assets/flying_big_berry.png" alt="Flying Big Berry">
+    </section>
+    <section class="flying-berry small-berry">
+      <img class="product-order__img" src="assets/flying_small_berry.png" alt="Flying Small Berry">
+    </section>
+    <form action="#" class="cake_order-form" #orderForm>
+      <h2 class="cake_order_title">Закажите макарун!</h2>
+      <section class="cake_order_text">
+        Выберите понравившийся макарун, заполните форму и ожидайте звонка нашего пекаря!
+      </section>
+      <label class="cake_order__label" for="choose">Ваш выбор</label>
+      <input class="cake_order__input input-choose" type="text" name="choose" id="choose"
+             placeholder="Напишите, что хотите заказать..." [(ngModel)]="orderFormData.productName">
+      <label class="cake_order__label" for="name">Заполните данные для заказа</label>
+      <input class="cake_order__input" type="text" name="name" id="name" placeholder="Ваше имя" [(ngModel)]="orderFormData.customerName">
+      <input class="cake_order__input" type="tel" name="tel" id="tel" placeholder="+375 (__) ___ - __ - __" [(ngModel)]="orderFormData.customerPhone">
+      <button class="btn cake-order__button">Оформить заказ</button>
+    </form>
+
+  </section>
+</article>
+<!--Footer-->
+<component-footer></component-footer>
+<footer class="footer">
+  <section class="container  footer__container">
+    <section class="footer__logo_rights">
+      <section class="footer_logo logo">
+        <img src="assets/logo.png" alt="Logo" class="footer__logo-image">
+      </section>
+      <section class="footer__rights for_big_screen">
+        Все права защищены, 2020
+      </section>
+    </section>
+    <section class="instagram">
+      <section class="instagram__logo">
+        <img src="assets/instagram_logo.png" alt="Instagram Logo">
+      </section>
+      <section class="instagram__info">Мы в Instagram</section>
+    </section>
+    <section class="footer__phone-number phone">+375 (29) 368-98-68</section>
+    <section class="footer__rights for_phone">
+      Все права защищены, 2020
+    </section>
+
+  </section>
+</footer>
+<!--Present icon-->
+
+<article class="present" *ngIf="showPresent">
+  <section class="present__message">
+    Оформите заказ и получите подарок!
+  </section>
+  <section class="present__icon">
+    <img class="present__icon-img" src="assets/present.png" alt="Present">
+  </section>
+
+</article>
+
+
