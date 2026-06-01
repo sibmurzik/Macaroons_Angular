@@ -23,9 +23,9 @@
 
       </div>
       <ul class="nav-menu">
-        <li><a href="#" class="nav-menu__item">Пироженки</a></li>
-        <li><a href="#" class="nav-menu__item">О нас</a></li>
-        <li><a href="#" class="nav-menu__item">Оформить заказ</a></li>
+        <li><a href="#" class="nav-menu__item" (click)="scrollToTarget('cakes')">Пироженки</a></li>
+        <li><a href="#" class="nav-menu__item"  (click)="scrollToTarget('about_us')">О нас</a></li>
+        <li><a href="#" class="nav-menu__item" (click)="scrollToTarget('create_order')">Оформить заказ</a></li>
       </ul>
     </nav>
     <section class="header__phone-number phone">{{contactPhone}}</section>

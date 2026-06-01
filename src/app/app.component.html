@@ -1,5 +1,5 @@
 
-<component-header></component-header>
+<component-header (scrollTarget)="eventScroll($event)" ></component-header >
 <!--Common information-->
 <article class="common-info">
   <section class="container common-info__container">
@@ -22,7 +22,7 @@
 </article>
 <!--Advantages-->
 <article class="advantages">
-  <section class="container advantages__container">
+  <section class="container advantages__container" #about_us>
     <h2 class="advantages__title">
       Мы печём для вас вкуснейшие макаруны уже более 10 лет
     </h2>
@@ -96,29 +96,7 @@
 </article>
 <!--Footer-->
 <component-footer></component-footer>
-<footer class="footer">
-  <section class="container  footer__container">
-    <section class="footer__logo_rights">
-      <section class="footer_logo logo">
-        <img src="assets/logo.png" alt="Logo" class="footer__logo-image">
-      </section>
-      <section class="footer__rights for_big_screen">
-        Все права защищены, 2020
-      </section>
-    </section>
-    <section class="instagram">
-      <section class="instagram__logo">
-        <img src="assets/instagram_logo.png" alt="Instagram Logo">
-      </section>
-      <section class="instagram__info">Мы в Instagram</section>
-    </section>
-    <section class="footer__phone-number phone">+375 (29) 368-98-68</section>
-    <section class="footer__rights for_phone">
-      Все права защищены, 2020
-    </section>
 
-  </section>
-</footer>
 <!--Present icon-->
 
 <article class="present" *ngIf="showPresent">

@@ -97,6 +97,9 @@ body {
   color: #ffffff;
   padding: 21px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn:hover {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
 import {contactPhone} from "../../config/config-data";
 
 @Component({
@@ -18,5 +18,14 @@ export class HeaderComponent {
   public closeMenu(): void {
     this.isMenuOpen = false;
   };
+
+  @Output()
+  scrollTarget: EventEmitter<string> = new EventEmitter<string>();
+
+  public scrollToTarget(target: string): void {
+    this.scrollTarget.emit(target);
+
+  }
+
 
 }

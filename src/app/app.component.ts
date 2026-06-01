@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {AdvantageType} from "./types/advantage.type";
 import {ProductCardType} from "./types/product-card.type";
 import {OrderFormType} from "./types/order-form.type";
 import {showPresent} from "./config/config-data";
-
 
 
 @Component({
@@ -37,61 +36,73 @@ export class AppComponent {
 
   ];
 
-  productCards : ProductCardType[] = [
+  productCards: ProductCardType[] = [
     {
       image: "rasberry_cake.png",
       title: "Макарун с малиной",
       qty: "1 шт.",
-      price:"1,70 руб."
+      price: "1,70 руб."
     },
     {
       image: "mango_cake.png",
       title: "Макарун с манго",
       qty: "1 шт.",
-      price:"1,70 руб."
+      price: "1,70 руб."
     },
     {
       image: "vanila_cake.png",
       title: "Пирог с ванилью",
       qty: "1 шт.",
-      price:"1,70 руб."
+      price: "1,70 руб."
     },
     {
       image: "pistachios_cake.png",
       title: "Пирог с фисташками",
       qty: "1 шт.",
-      price:"1,70 руб."
+      price: "1,70 руб."
     },
 
   ];
 
-  orderFormData:OrderFormType = {
-    productName:"",
-    customerName:  "",
+  orderFormData: OrderFormType = {
+    productName: "",
+    customerName: "",
     customerPhone: "",
 
   }
-
 
 
   public scrollTo(target: HTMLElement): void {
     target.scrollIntoView({block: "center", behavior: "smooth"});
   }
 
-  public orderProduct(product:ProductCardType, target: HTMLElement): void {
+  public orderProduct(product: ProductCardType, target: HTMLElement): void {
     this.scrollTo(target);
     this.orderFormData.productName = product.title.toUpperCase();
 
   }
 
+  @ViewChild('productSelect') cakesView!: ElementRef;
+  @ViewChild('orderForm') orderForm!: ElementRef;
+  @ViewChild('about_us') aboutUs!: ElementRef;
+
+
+  public eventScroll(destination: string): void {
+    switch (destination) {
+      case 'cakes':
+        this.scrollTo(this.cakesView.nativeElement);
+        break;
+      case 'about_us':
+        this.scrollTo(this.aboutUs.nativeElement);
+        break;
+      case 'create_order':
+        this.scrollTo(this.orderForm.nativeElement);
+    }
+
+
+  }
+
   showPresent: boolean = showPresent;
-
-
-
-
-
-
-
 
 
 }
