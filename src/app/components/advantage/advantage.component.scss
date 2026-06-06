@@ -1,0 +1,91 @@
+.advantages__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 13px;
+  max-width: 250px;
+
+}
+
+
+
+.card-4 {
+  justify-self: flex-end;
+}
+
+.number-in-oval {
+  text-align: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  background-color: #821328;
+  transition-duration: 0.5s;
+  transition-property: background-color;
+  position: relative;
+
+}
+
+.number-in-oval__figure{
+  display: block;
+  font-size: 60px;
+  color: #ffffff;
+  font-family: "Gilroy-ExtraBold", sans-serif;
+  position: absolute;
+  left: 20px;
+  bottom: -10px;
+  transition-duration: 0.5s;
+  transition-property: color;
+}
+
+.advantages__card:hover   .number-in-oval{
+  background-color: #eba8b1;
+}
+
+.advantages__card:hover .number-in-oval__figure {
+  color: #821328;
+
+}
+
+.advantages_feature {
+  font-size: 20px;
+  color: #331907;
+  font-family: "Gilroy-ExtraBold", sans-serif;
+  padding-bottom: 6px;
+}
+
+.advantages__text {
+  font-size: 15px;
+  line-height: 20px;
+  color: #331907;
+  font-family: "Gilroy-Medium", sans-serif;
+}
+
+@media screen  and (max-width: 767px) {
+  .card-4 {
+    justify-self:  center;
+    max-width: 215px;
+  }
+
+  .advantages_feature{
+    text-align: center;
+  }
+  .advantages__card {
+    align-items: center;
+  }
+  .advantages__text {
+    text-align: center;
+  }
+}
+
+@media screen  and (max-width: 499px) {
+  .advantages_feature {
+    font-size: 18px;
+  }
+
+  .advantages__text {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+}

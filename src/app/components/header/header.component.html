@@ -28,7 +28,7 @@
         <li><a href="#" class="nav-menu__item" (click)="scrollToTarget('create_order')">Оформить заказ</a></li>
       </ul>
     </nav>
-    <section class="header__phone-number phone">{{contactPhone}}</section>
+    <section class="header__phone-number phone">{{contactPhone | customPhone}}</section>
 
     <section class="header__burger-menu" id="burger" (click)="openMenu()">
       <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 22" width="40" height="22">

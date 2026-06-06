@@ -10,7 +10,8 @@
       <h3 class="common-info__text">
         Побалуйте себя и своих близких самыми вкусными и ароматными домашними пироженками Macaroon!
       </h3>
-      <button class="btn common-info__btn" (click)="scrollTo(productSelect)">Выбрать макарун</button>
+      <button class="btn common-info__btn" (click)="scrollTo(productSelect)" buttonEffect
+      [buttonEffectBackgroundColor]="'#617b3f'" >Выбрать макарун</button>
     </section>
     <section class="common-info_picture-holder">
       <section class="common-info__picture">
@@ -35,12 +36,8 @@
       <img src="assets/big_cake.png" alt="Big cake" class="big-cake-image">
     </section>
 
-    <section *ngFor="let advantage of advantagesList"  class="advantages__card card-{{advantage.number}} ">
-      <section class="number-in-oval"><span class="number-in-oval__figure">{{advantage.number}}</span></section>
-      <h3 class="advantages_feature">{{advantage.feature}}</h3>
-      <p class="advantages__text">{{advantage.description}}</p>
 
-    </section>
+    <advantage-component *ngFor="let advantage of advantagesList " [advantage]="advantage" ]></advantage-component>
 
 
   </section>
@@ -50,17 +47,8 @@
   <section class="container">
     <h1 class="products-select__title">Выберите свой макарун</h1>
     <section class="products-select__cards" #productSelect>
-      <section class="product-card" *ngFor="let product of productCards ">
-        <section class="product-card__image">
-          <img class="product-image" src="assets/images_for_selection/{{product.image}}" alt="{{product.title}}">
-        </section>
-        <section class="product-card__info">
-          <section class="product-card__title">{{product.title}}</section>
-          <section class="product-card__qty">{{product.qty}}</section>
-          <section class="product-card__price">{{product.price}}</section>
-          <button class="btn product-card__button" (click)="orderProduct(product, orderForm)">Заказать</button>
-        </section>
-      </section>
+      <product-component *ngFor="let product of productCards" [product]="product" (addToCartEvent)="orderProduct($event, orderForm)"></product-component>
+
 
     </section>
   </section>
@@ -89,7 +77,11 @@
       <label class="cake_order__label" for="name">Заполните данные для заказа</label>
       <input class="cake_order__input" type="text" name="name" id="name" placeholder="Ваше имя" [(ngModel)]="orderFormData.customerName">
       <input class="cake_order__input" type="tel" name="tel" id="tel" placeholder="+375 (__) ___ - __ - __" [(ngModel)]="orderFormData.customerPhone">
-      <button class="btn cake-order__button">Оформить заказ</button>
+      <button class="btn cake-order__button" buttonEffect
+      [buttonEffectBackgroundColor]="'#4d0066'"
+              [buttonEffectFocusBackgroundColor]="'#506600'"
+      >Оформить заказ</button>
+
     </form>
 
   </section>
@@ -101,10 +93,11 @@
 
 <article class="present" *ngIf="showPresent">
   <section class="present__message">
-    Оформите заказ и получите подарок!
+    {{orders_qty.totalPrice | currencyPipe}}
   </section>
   <section class="present__icon">
-    <img class="present__icon-img" src="assets/present.png" alt="Present">
+    <img class="present__icon-img" src="assets/cart.png" alt="Present">
+    <div class="orders_qty">{{orders_qty.count}}</div>
   </section>
 
 </article>

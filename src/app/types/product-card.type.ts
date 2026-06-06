@@ -1,7 +1,7 @@
 export type ProductCardType = {
   image: string,
   title: string,
-  qty: string,
-  price: string
+  qty: number,
+  price: number
 
 }

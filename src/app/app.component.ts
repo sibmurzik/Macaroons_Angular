@@ -1,8 +1,10 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AdvantageType} from "./types/advantage.type";
 import {ProductCardType} from "./types/product-card.type";
 import {OrderFormType} from "./types/order-form.type";
 import {showPresent} from "./config/config-data";
+import {ProductsListService} from "./services/products-list.service";
+import {OrdersQtyService} from "./services/orders-qty.service";
 
 
 @Component({
@@ -10,7 +12,7 @@ import {showPresent} from "./config/config-data";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   advantagesList: AdvantageType[] = [
     {
       number: 1,
@@ -36,33 +38,19 @@ export class AppComponent {
 
   ];
 
-  productCards: ProductCardType[] = [
-    {
-      image: "rasberry_cake.png",
-      title: "Макарун с малиной",
-      qty: "1 шт.",
-      price: "1,70 руб."
-    },
-    {
-      image: "mango_cake.png",
-      title: "Макарун с манго",
-      qty: "1 шт.",
-      price: "1,70 руб."
-    },
-    {
-      image: "vanila_cake.png",
-      title: "Пирог с ванилью",
-      qty: "1 шт.",
-      price: "1,70 руб."
-    },
-    {
-      image: "pistachios_cake.png",
-      title: "Пирог с фисташками",
-      qty: "1 шт.",
-      price: "1,70 руб."
-    },
+  productCards: ProductCardType[] = []
 
-  ];
+
+  constructor(private productList: ProductsListService ,
+              public orders_qty: OrdersQtyService) {
+
+  }
+
+  ngOnInit(): void {
+       this.productCards = this.productList.getProducts();
+    }
+
+
 
   orderFormData: OrderFormType = {
     productName: "",
@@ -79,6 +67,10 @@ export class AppComponent {
   public orderProduct(product: ProductCardType, target: HTMLElement): void {
     this.scrollTo(target);
     this.orderFormData.productName = product.title.toUpperCase();
+
+    this.orders_qty.count ++;
+    this.orders_qty.totalPrice += product.price;
+    window.alert(`${product.title} добавлен в корзину!`);
 
   }
 

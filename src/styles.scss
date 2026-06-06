@@ -252,68 +252,6 @@ body {
   height: 100%;
 }
 
-.advantages__card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 13px;
-  max-width: 250px;
-
-}
-
-
-
-.card-4 {
-  justify-self: flex-end;
-}
-
-.number-in-oval {
-  text-align: center;
-  width: 70px;
-  height: 70px;
-  border-radius: 35px;
-  background-color: #821328;
-  transition-duration: 0.5s;
-  transition-property: background-color;
-  position: relative;
-
-}
-
-.number-in-oval__figure{
-  display: block;
-  font-size: 60px;
-  color: #ffffff;
-  font-family: "Gilroy-ExtraBold", sans-serif;
-  position: absolute;
-  left: 20px;
-  bottom: -10px;
-  transition-duration: 0.5s;
-  transition-property: color;
-}
-
-.advantages__card:hover   .number-in-oval{
-  background-color: #eba8b1;
-}
-
-.advantages__card:hover .number-in-oval__figure {
-  color: #821328;
-
-}
-
-.advantages_feature {
-  font-size: 20px;
-  color: #331907;
-  font-family: "Gilroy-ExtraBold", sans-serif;
-  padding-bottom: 6px;
-}
-
-.advantages__text {
-  font-size: 15px;
-  line-height: 20px;
-  color: #331907;
-  font-family: "Gilroy-Medium", sans-serif;
-}
 
 /*Product selection*/
 .product-select {
@@ -339,87 +277,7 @@ body {
   row-gap: 140px;
 }
 
-.product-card {
-  width: 262px;
-  height: 229px;
-  border: 2px solid #ffffff;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-}
 
-.product-card__info {
-  height: 120px;
-  width: 100%;
-  padding: 0 20px 24px 20px ;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 42px 1fr 1fr;
-  grid-template-areas:
-        "title title"
-         "qty  button"
-        "price button" ;
-  align-items: start;
-  justify-items: center;
-}
-
-.product-card__image {
-  width: 195px;
-  height: 124px;
-  transition-property: all;
-  transition-duration: 0.5s;
-
-}
-
-.product-image {
-  position: relative;
-  top: -50%;
-  width: 100%;
-  height: 100%;
-
-}
-
-.product-card:hover .product-card__image {
-  transform: scale(1.1);
-}
-
-.product-card__title {
-  font-size: 18px;
-  color: #ffffff;
-  font-family: "Tavolga-Free", sans-serif;
-  text-align: center;
-  grid-area:  title;
-}
-
-.product-card__qty {
-  font-size: 15px;
-  color: #ffffff;
-  font-family: "Gilroy-Regular", sans-serif;
-  grid-area:  qty;
-  align-self: start;
-  justify-self: start;
-}
-
-.product-card__price {
-  font-size: 15px;
-  color: #ffffff;
-  font-family: "Gilroy-Regular", sans-serif;
-  grid-area:  price;
-  align-self: end;
-  justify-self: start;
-  padding-bottom: 4px;
-}
-
-.product-card__button{
-  width: 130px;
-  height: 50px;
-  border-radius: 25px;
-  font-size: 16px;
-  padding: 18px;
-  grid-area:  button;
-}
 
 /*Product order */
 .product-order {
@@ -567,11 +425,34 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   width: 90px;
   height: 90px;
   border-radius: 45px;
   line-height: 90px;
   background-image: radial-gradient(circle at center, #71081d 0%, #d7475c 100%);
+  img {
+    width: 50%;
+    height: 50%;
+    margin-right: 5px;
+  }
+  .orders_qty {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 2px;
+    right: 5px;
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    background-color: #feefee;
+    border: 2px solid #770a1d;
+    color: #770a1d;
+    font-size: 15px;
+    font-family: "Gilroy-Bold", sans-serif;
+
+  }
 }
 
 
@@ -587,8 +468,9 @@ body {
   line-height: 20px;
   color: #770a1d;
   font-family: "Gilroy-Medium", sans-serif;
-  width: 172px;
-  height: 64px;
+  padding: 10px;
+  width: auto;
+
   border-radius: 10px;
   background-color: #feefee;
   border: 2px solid #770a1d;
@@ -606,10 +488,10 @@ body {
 .present__message:after {
   content: "";
   position: absolute;
-  right: -9px;
-  top: 19px;
-  width: 15px;
-  height: 15px;
+  right: -8px;
+  top: 12px;
+  width: 10px;
+  height: 10px;
   background-color: #feefee;
   border-top: 2px solid #770a1d;
   border-right: 2px solid #770a1d;
@@ -763,24 +645,6 @@ body {
     justify-self:  center;
   }
 
-  .card-4 {
-    justify-self:  center;
-    max-width: 215px;
-  }
-
-  .advantages_feature{
-    text-align: center;
-  }
-  .advantages__card {
-    align-items: center;
-  }
-  .advantages__text {
-    text-align: center;
-  }
-
-
-
-
 }
 
 
@@ -898,14 +762,7 @@ body {
     margin-bottom: 19px;
   }
 
-  .advantages_feature {
-    font-size: 18px;
-  }
 
-  .advantages__text {
-    font-size: 13px;
-    line-height: 18px;
-  }
 
 
 

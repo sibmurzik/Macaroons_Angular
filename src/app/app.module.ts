@@ -6,6 +6,14 @@ import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import {ProductsListService} from "./services/products-list.service";
+import { AdvantageComponent } from './components/advantage/advantage.component';
+import { ProductComponent } from './components/product/product.component';
+import { CurrencyPipe } from './pipes/currency.pipe';
+import { QuantityPipe } from './pipes/quantity-pipe';
+import { CustomPhonePipe } from './pipes/custom-phone.pipe';
+import { ButtonEffectDirective } from './directives/button-effect.directive';
+import { TextReducerPipe } from './pipes/text-reducer.pipe';
 
 
 
@@ -14,6 +22,13 @@ import { FooterComponent } from './components/footer/footer.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    AdvantageComponent,
+    ProductComponent,
+    CurrencyPipe,
+    QuantityPipe,
+    CustomPhonePipe,
+    ButtonEffectDirective,
+    TextReducerPipe,
 
 
   ],
@@ -22,7 +37,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [ProductsListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
