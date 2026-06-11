@@ -6,7 +6,7 @@
   <section class="product-card__info">
     <section class="product-card__title">{{product.title}}</section>
     <section class="product-card__qty">{{product.qty | quantityPipe }}</section>
-    <section class="product-card__price">{{product.price | currencyPipe}} </section>
+    <section class="product-card__price">{{product.price | currency:'RUB':'руб.':'1.2-2':'ru-RU' }} </section>
     <button class="btn product-card__button" (click)="orderProduct(product)" buttonEffect
     [buttonEffectFocusBackgroundColor]="'blue'">Заказать</button>
   </section>

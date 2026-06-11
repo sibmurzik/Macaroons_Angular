@@ -93,7 +93,7 @@
 
 <article class="present" *ngIf="showPresent">
   <section class="present__message">
-    {{orders_qty.totalPrice | currencyPipe}}
+    {{orders_qty.totalPrice | currency:'RUB':'руб.':'1.2-2':'ru-RU'}}
   </section>
   <section class="present__icon">
     <img class="present__icon-img" src="assets/cart.png" alt="Present">
